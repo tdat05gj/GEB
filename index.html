@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Ranking & Analytics</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React and ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Web3.js -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@4.1.1/dist/web3.min.js"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Custom CSS for animations -->
+    <style>
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.8); }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes neonGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(245, 158, 11, 0.8),
+                            0 0 20px rgba(245, 158, 11, 0.6),
+                            0 0 30px rgba(245, 158, 11, 0.4);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(245, 158, 11, 1),
+                            0 0 30px rgba(245, 158, 11, 0.8),
+                            0 0 40px rgba(245, 158, 11, 0.6);
+            }
+        }
+        
+        @keyframes particle {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-50px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(0);
+            }
+        }
+        
+        .spin-animation {
+            animation: spin 2s linear infinite;
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .glow-effect {
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        .slide-in-up {
+            animation: slideInUp 0.8s ease-out;
+        }
+        
+        .neon-text {
+            animation: neonGlow 2s ease-in-out infinite;
+        }
+        
+        .particle-effect {
+            animation: particle 2s ease-out infinite;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #1f2937, #111827);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f59e0b, #d97706);
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #fbbf24, #f59e0b);
+        }
+        
+        /* Glass morphism */
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hover effects */
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
+            transform: translateY(-5px);
+        }
+        
+        /* Smooth transitions */
+        * {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Enhanced gradients */
+        .gradient-gold {
+            background: linear-gradient(135deg, #ffd700, #ffb347, #ffa500, #ff8c00);
+        }
+        
+        .gradient-crypto {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* Shadow effects */
+        .shadow-glow {
+            box-shadow: 0 0 50px rgba(245, 158, 11, 0.3);
+        }
+        
+        .shadow-deep {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- Load components and utilities -->
+    <script type="text/babel" src="src/config/env.js"></script>
+    <script type="text/babel" src="src/utils/firebase.js"></script>
+    <script type="text/babel" src="src/utils/web3.js"></script>
+    <script type="text/babel" src="src/components/SpinningLogo.jsx"></script>
+    <script type="text/babel" src="src/components/ThemeToggle.jsx"></script>
+    <script type="text/babel" src="src/components/RankDisplay.jsx"></script>
+    <script type="text/babel" src="src/components/CryptoMemories.jsx"></script>
+    <script type="text/babel" src="src/components/Leaderboard.jsx"></script>
+    <script type="text/babel" src="src/App.jsx"></script>
+</body>
+</html>
